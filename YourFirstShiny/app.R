@@ -34,8 +34,15 @@ my_server <- function(input, output) {
     output$message <- renderText({
         message_str <- paste("Hello,", input$username, ", how are you?") # Using the input!
         message_str # the last line gets returned
+        
+    output$message <- renderText({
+      message_str <- paste("what are you doing today?", input$username, "That's cool")
+      message_str
+    })
     })
 }
+
+
 
 # Run the application 
 shinyApp(ui = my_ui, server = my_server)
